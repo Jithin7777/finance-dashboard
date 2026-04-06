@@ -25,6 +25,13 @@ import { CalendarIcon, PlusIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { toast } from "sonner";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/components/ui/select";
 
 const AddTransactionDialog = () => {
   const addTransaction = useFinanceStore((state) => state.addTransaction);
@@ -146,17 +153,22 @@ const AddTransactionDialog = () => {
           </div>
 
           {/* Type */}
-          <div className="space-y-2">
-            <label className="text-sm font-medium">Type</label>
-            <select
-              className="w-full border rounded-md p-2"
-              value={form.type}
-              onChange={(e) => setForm({ ...form, type: e.target.value })}
-            >
-              <option value="income">Income</option>
-              <option value="expense">Expense</option>
-            </select>
-          </div>
+
+<div className="space-y-2">
+  <label className="text-sm font-medium">Type</label>
+  <Select
+    value={form.type}
+    onValueChange={(value) => setForm({ ...form, type: value })}
+  >
+    <SelectTrigger className="w-full">
+      <SelectValue placeholder="Select type" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem value="income">Income</SelectItem>
+      <SelectItem value="expense">Expense</SelectItem>
+    </SelectContent>
+  </Select>
+</div>
         </div>
 
         <DialogFooter className="mt-4">
