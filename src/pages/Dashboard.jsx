@@ -83,14 +83,13 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Summary Cards */}
       <SummaryCards />
+      
       {/* Charts Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
         {/* Line Chart */}
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-md transition-colors">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-2">
-            {/* Left: Title + Icon */}
             <div className="flex items-center gap-2">
               <BarChart2 className="w-5 h-5 text-indigo-600 transform transition-transform duration-500 ease-out hover:scale-110" />
               <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 transition-colors duration-300 hover:text-indigo-600">
@@ -98,14 +97,13 @@ const Dashboard = () => {
               </h2>
             </div>
 
-            {/* Right: Subtitle */}
             <span className="text-sm text-gray-500 dark:text-gray-400">
               Income vs Expense vs Balance
             </span>
           </div>
 
           {balanceTrendData.length > 0 ? (
-            <div className="w-full h-80 sm:h-80 md:h-96">
+            <div className="w-full h-80 sm:h-80 md:h-80">
               <LineChartComponent data={balanceTrendData} />
             </div>
           ) : (
@@ -117,7 +115,7 @@ const Dashboard = () => {
 
         {/* Pie Chart */}
         <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-md transition-colors">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-2">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 md:mb-2 gap-2">
             {/* Left: Icon + Title */}
             <div className="flex items-center gap-2">
               <PieChart className="w-5 h-5 text-indigo-600 transform transition-transform duration-500 ease-out hover:scale-110" />
@@ -140,7 +138,7 @@ const Dashboard = () => {
                   .toLocaleString()}
               </div>
 
-              <div className="w-full h-64 sm:h-72 md:h-80 lg:h-96">
+              <div className="w-full h-64 sm:h-72 md:h-80 lg:h-80">
                 <PieChartComponent data={categoryData} />
               </div>
               

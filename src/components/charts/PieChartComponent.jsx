@@ -57,15 +57,15 @@ const PieChartComponent = ({ data }) => {
   const total = formattedData.reduce((sum, item) => sum + item.value, 0);
 
   return (
-    <div className="w-full h-full min-h-65 sm:min-h-80 md:min-h-95">
+    <div className="w-full h-full min-h-65 sm:h-80 ">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={formattedData}
             dataKey="value"
             nameKey="name"
-            outerRadius="80%"
-            innerRadius="55%"
+            outerRadius="70%"
+            innerRadius="45%"
             paddingAngle={4}
             labelLine={false}
           >
@@ -87,8 +87,7 @@ const PieChartComponent = ({ data }) => {
 
           <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
 
-          {/* Custom Bullet Legend */}
-          <Legend content={<CustomLegend />} />
+          <Legend   content={<CustomLegend />} />
         </PieChart>
       </ResponsiveContainer>
     </div>
