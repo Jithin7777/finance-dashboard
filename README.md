@@ -46,7 +46,7 @@ A interactive Finance Dashboard built with React, Tailwind CSS, and Zustand for 
 - **Charts:** Recharts
 - **UI Components:** Shadcn UI
 - **Notifications:** Sonner
-- **Icons:** Lucide React, Heroicons
+- **Icons:** Lucide React
 - **Data:** Static JSON (mock transactions)
 
 
