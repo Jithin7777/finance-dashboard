@@ -3,6 +3,7 @@ import InsightsCards from "../components/insights/InsightCards";
 import { useFinanceStore } from "../store/financeStore";
 import { Sparkles } from "lucide-react";
 import MonthlyBarChart from "@/components/charts/MontlyBarChart";
+
 const Insights = () => {
   const { transactions } = useFinanceStore();
 
@@ -16,39 +17,38 @@ const Insights = () => {
   }, {});
 
   return (
-    <div className="p-3 space-y-10 bg-gray-50 min-h-screen">
-
+    <div className="  md:p-3 space-y-10 min-h-screen  dark:bg-gray-900">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <div className="bg-indigo-100 p-2 rounded-lg">
-          <Sparkles className="text-indigo-600 w-6 h-6" />
+        <div className="bg-indigo-100 dark:bg-gray-900 p-2 rounded-lg">
+          <Sparkles className="text-indigo-600 dark:text-indigo-300 w-6 h-6" />
         </div>
 
         <div>
-          <h1 className="text-2xl font-bold text-gray-800">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
             Financial Insights
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
             Smart observations based on your income and expenses
           </p>
         </div>
       </div>
 
       {/* Insights Section */}
-      <div className="bg-white rounded-xl shadow-sm p-4">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm dark:shadow-gray-900 p-4">
         <InsightsCards />
       </div>
 
       {/* Monthly Expenses Bar Chart */}
-      {/* Monthly Expenses Bar Chart */}
-<div className="bg-white rounded-xl shadow-sm p-4">
-  <h2 className="text-lg font-semibold mb-4 text-center">Monthly Expenses Chart</h2>
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm dark:shadow-gray-900 p-4">
+        <h2 className="text-lg font-semibold mb-4 text-center text-gray-800 dark:text-gray-100">
+          Monthly Expenses Chart
+        </h2>
 
-  <div className="max-w-3xl mx-auto">
-    <MonthlyBarChart monthlySummary={monthlySummary} />
-  </div>
-</div>
-
+        <div className="max-w-3xl mx-auto">
+          <MonthlyBarChart monthlySummary={monthlySummary} />
+        </div>
+      </div>
     </div>
   );
 };

@@ -23,9 +23,7 @@ import {
 import { toast } from "sonner";
 
 const EditTransactionModal = ({ open, setOpen, transaction }) => {
-  const editTransaction = useFinanceStore(
-    (state) => state.editTransaction
-  );
+  const editTransaction = useFinanceStore((state) => state.editTransaction);
 
   // Initialize form with transaction data when modal opens
   const [form, setForm] = useState({
@@ -36,16 +34,13 @@ const EditTransactionModal = ({ open, setOpen, transaction }) => {
     description: "",
   });
 
-  // Reset form when modal opens with new transaction data
-  // This is safe because we're responding to a user action (modal opening)
-  // not synchronizing state in an effect
   React.useEffect(() => {
     if (open && transaction) {
       setForm({
         category: transaction?.category || "",
         amount: transaction?.amount?.toString() || "",
         type: transaction?.type || "expense",
-        date: transaction?.date || new Date().toISOString().split('T')[0],
+        date: transaction?.date || new Date().toISOString().split("T")[0],
         description: transaction?.description || "",
       });
     }
@@ -71,7 +66,7 @@ const EditTransactionModal = ({ open, setOpen, transaction }) => {
       description: form.description,
     });
 
-    toast.success("Transaction updated successfully 🎉");
+    toast.success("Transaction updated successfully");
 
     setOpen(false);
   };
@@ -168,18 +163,12 @@ const EditTransactionModal = ({ open, setOpen, transaction }) => {
         </div>
 
         <DialogFooter className="gap-2">
-          <Button
-            variant="outline"
-            onClick={() => setOpen(false)}
-          >
+          <Button variant="outline" onClick={() => setOpen(false)}>
             Cancel
           </Button>
 
-          <Button onClick={handleSubmit}>
-            Save Changes
-          </Button>
+          <Button onClick={handleSubmit}>Save Changes</Button>
         </DialogFooter>
-
       </DialogContent>
     </Dialog>
   );

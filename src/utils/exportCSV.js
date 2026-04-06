@@ -1,11 +1,9 @@
-// src/utils/exportCSV.js
 export const exportTransactionsToCSV = (transactions, filename = "transactions.csv") => {
   if (!transactions || transactions.length === 0) {
     alert("No transactions to export");
     return;
   }
 
-  // Headers in new order
   const headers = ["Date", "Category", "Type", "Amount", "Description"];
 
   const rows = transactions.map((t) => {
@@ -16,11 +14,11 @@ export const exportTransactionsToCSV = (transactions, filename = "transactions.c
     }
     
     return [
-      formattedDate,     // Date first
-      t.category,        // Category
-      t.type,            // Type
-      t.amount,          // Amount
-      t.description || "", // Description
+      formattedDate,     
+      t.category,        
+      t.type,            
+      t.amount,          
+      t.description || "", 
     ].map((val) => `"${val}"`).join(",");
   });
 

@@ -1,80 +1,98 @@
-  import React from "react";
-  import {
-    PieChart,
-    Pie,
-    Tooltip,
-    ResponsiveContainer,
-    Legend,
-    Label,
-  } from "recharts";
+import React from "react";
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+  Label,
+  Cell,
+} from "recharts";
 
-  const COLORS = [
-    "#22c55e",
-    "#ef4444",
-    "#3b82f6",
-    "#f59e0b",
-    "#8b5cf6",
-    "#14b8a6",
-  ];
+const COLORS = [
+  "#22c55e",
+  "#ef4444",
+  "#3b82f6",
+  "#f59e0b",
+  "#8b5cf6",
+  "#14b8a6",
+];
 
-  const PieChartComponent = ({ data }) => {
-    if (!data || data.length === 0) {
-      return (
-        <div className="text-center text-gray-500 py-10">
-          No expense data available
+const CustomLegend = ({ payload }) => {
+  return (
+    <div className="flex flex-wrap justify-center gap-4 mt-4">
+      {payload.map((entry, index) => (
+        <div
+          key={index}
+          className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300"
+        >
+          {/* Colored Bullet */}
+          <span
+            className="w-3 h-3 rounded-full"
+            style={{ backgroundColor: entry.color }}
+          />
+
+          {/* Category Name */}
+          <span>{entry.value}</span>
         </div>
-      );
-    }
+      ))}
+    </div>
+  );
+};
 
-    // Add 'fill' color directly to each data item
-    const formattedData = data.map((item, index) => ({
-      ...item,
-      value: Number(item.value),
-      fill: COLORS[index % COLORS.length],
-    }));
-
-    const total = formattedData.reduce((sum, item) => sum + item.value, 0);
-
+const PieChartComponent = ({ data }) => {
+  if (!data || data.length === 0) {
     return (
-      <div className="w-full aspect-[1/1] sm:aspect-[4/3] md:aspect-[5/3]">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={formattedData}
-              dataKey="value"
-              nameKey="name"
-              outerRadius="80%"
-              innerRadius="50%"
-              paddingAngle={3}
-              labelLine={false}
-            >
-              {/* Center total label */}
-              <Label
-                value={`₹${total.toLocaleString()}`}
-                position="center"
-                style={{
-                  fontWeight: 600,
-                  fill: "#374151",
-                  textAnchor: "middle",
-                  fontSize: 20, // fallback size
-                }}
-                className="text-base sm:text-lg md:text-2xl"
-              />
-            </Pie>
-
-            <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
-
-            <Legend
-              layout="horizontal"
-              verticalAlign="bottom"
-              align="center"
-              height={56}
-              wrapperStyle={{ flexWrap: "wrap" }}
-            />
-          </PieChart>
-        </ResponsiveContainer>
+      <div className="flex items-center justify-center h-full text-gray-500">
+        No expense data available
       </div>
     );
-  };
+  }
 
-  export default PieChartComponent;
+  const formattedData = data.map((item) => ({
+    ...item,
+    value: Number(item.value),
+  }));
+
+  const total = formattedData.reduce((sum, item) => sum + item.value, 0);
+
+  return (
+    <div className="w-full h-full min-h-65 sm:min-h-80 md:min-h-95">
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart>
+          <Pie
+            data={formattedData}
+            dataKey="value"
+            nameKey="name"
+            outerRadius="80%"
+            innerRadius="55%"
+            paddingAngle={4}
+            labelLine={false}
+          >
+            {formattedData.map((entry, index) => (
+              <Cell key={index} fill={COLORS[index % COLORS.length]} />
+            ))}
+
+            {/* Center Label */}
+            <Label
+              value={`₹${total.toLocaleString()}`}
+              position="center"
+              style={{
+                fontWeight: 600,
+                fill: "#374151",
+                fontSize: 18,
+              }}
+            />
+          </Pie>
+
+          <Tooltip formatter={(value) => `₹${value.toLocaleString()}`} />
+
+          {/* Custom Bullet Legend */}
+          <Legend content={<CustomLegend />} />
+        </PieChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
+
+export default PieChartComponent;

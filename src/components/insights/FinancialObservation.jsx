@@ -13,7 +13,7 @@ import {
 
 const FinancialObservation = ({ monthlySummary }) => {
   const months = Object.keys(monthlySummary).sort(
-    (a, b) => new Date(a) - new Date(b)
+    (a, b) => new Date(a) - new Date(b),
   );
 
   if (months.length === 0) {
@@ -46,7 +46,7 @@ const FinancialObservation = ({ monthlySummary }) => {
   const getTotal = (key) =>
     Object.values(monthlySummary).reduce((sum, m) => sum + m[key], 0);
 
-  // ---------- Latest & Previous ----------
+  //  Latest & Previous 
   const lastMonth = months.at(-1);
   const prevMonth = months.at(-2);
 
@@ -56,30 +56,23 @@ const FinancialObservation = ({ monthlySummary }) => {
   const lastMonthName = formatMonth(lastMonth);
   const prevMonthName = prevMonth ? formatMonth(prevMonth) : null;
 
-  // ---------- Totals ----------
+  //  Totals 
   const totalIncome = getTotal("income");
   const totalExpenses = getTotal("expense");
   const totalSavings = totalIncome - totalExpenses;
   const overallSavingsRate =
     totalIncome > 0 ? ((totalSavings / totalIncome) * 100).toFixed(1) : 0;
 
-  // ---------- Changes ----------
+  // Changes 
   const calcChange = (current, previous) => {
     if (!previous || previous === 0) return null;
     return Math.abs(((current - previous) / previous) * 100).toFixed(1);
   };
 
-  const expenseChange = calcChange(
-    lastData.expense,
-    prevData?.expense
-  );
+  const expenseChange = calcChange(lastData.expense, prevData?.expense);
 
-  const incomeChange = calcChange(
-    lastData.income,
-    prevData?.income
-  );
+  const incomeChange = calcChange(lastData.income, prevData?.income);
 
-  // ---------- Insights ----------
   const insights = [];
 
   // 1 Budget health
@@ -91,8 +84,8 @@ const FinancialObservation = ({ monthlySummary }) => {
         `In ${lastMonthName}, expenses exceeded income by ₹${
           lastData.expense - lastData.income
         }`,
-        "warning"
-      )
+        "warning",
+      ),
     );
   } else if (lastData.income > lastData.expense) {
     const savings = lastData.income - lastData.expense;
@@ -103,8 +96,8 @@ const FinancialObservation = ({ monthlySummary }) => {
         <PiggyBank className="w-5 h-5 text-green-500" />,
         "Savings Success",
         `In ${lastMonthName}, you saved ₹${savings} (${rate}% of income)`,
-        "success"
-      )
+        "success",
+      ),
     );
   } else {
     insights.push(
@@ -112,8 +105,8 @@ const FinancialObservation = ({ monthlySummary }) => {
         <MinusCircle className="w-5 h-5 text-gray-500" />,
         "Balanced Budget",
         `In ${lastMonthName}, income and expenses were equal`,
-        "neutral"
-      )
+        "neutral",
+      ),
     );
   }
 
@@ -125,8 +118,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <TrendingUp className="w-5 h-5 text-red-500" />,
           "Expense Increase",
           `Spending increased by ${expenseChange}% compared to ${prevMonthName}`,
-          "warning"
-        )
+          "warning",
+        ),
       );
     } else {
       insights.push(
@@ -134,8 +127,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <TrendingDown className="w-5 h-5 text-green-500" />,
           "Expense Decrease",
           `Spending decreased by ${expenseChange}% compared to ${prevMonthName}`,
-          "success"
-        )
+          "success",
+        ),
       );
     }
   }
@@ -148,8 +141,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <TrendingUp className="w-5 h-5 text-green-500" />,
           "Income Growth",
           `Income increased by ${incomeChange}% compared to ${prevMonthName}`,
-          "success"
-        )
+          "success",
+        ),
       );
     } else {
       insights.push(
@@ -157,8 +150,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <TrendingDown className="w-5 h-5 text-red-500" />,
           "Income Decrease",
           `Income decreased by ${incomeChange}% compared to ${prevMonthName}`,
-          "warning"
-        )
+          "warning",
+        ),
       );
     }
   }
@@ -171,8 +164,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <Sparkles className="w-5 h-5 text-yellow-500" />,
           "Excellent",
           `You've saved ${overallSavingsRate}% of your income`,
-          "success"
-        )
+          "success",
+        ),
       );
     } else if (overallSavingsRate >= 20) {
       insights.push(
@@ -180,8 +173,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <CheckCircle className="w-5 h-5 text-green-500" />,
           "Good Progress",
           `You've saved ${overallSavingsRate}% of your income`,
-          "success"
-        )
+          "success",
+        ),
       );
     } else {
       insights.push(
@@ -189,8 +182,8 @@ const FinancialObservation = ({ monthlySummary }) => {
           <Target className="w-5 h-5 text-blue-500" />,
           "Keep Going",
           `Try to increase savings from ${overallSavingsRate}%`,
-          "neutral"
-        )
+          "neutral",
+        ),
       );
     }
   }
@@ -204,8 +197,8 @@ const FinancialObservation = ({ monthlySummary }) => {
             insight.type === "warning"
               ? "bg-red-50 border-red-500"
               : insight.type === "success"
-              ? "bg-green-50 border-green-500"
-              : "bg-gray-50 border-gray-500"
+                ? "bg-green-50 border-green-500"
+                : "bg-gray-50 border-gray-500"
           } hover:shadow-md`}
         >
           <div className="flex gap-3">
@@ -214,9 +207,7 @@ const FinancialObservation = ({ monthlySummary }) => {
               <h4 className="font-semibold text-sm text-gray-800">
                 {insight.title}
               </h4>
-              <p className="text-sm text-gray-600">
-                {insight.message}
-              </p>
+              <p className="text-sm text-gray-600">{insight.message}</p>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ import { format } from "date-fns";
 import { CalendarIcon, PlusIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-import { toast } from "sonner"; // ✅ import Sonner
+import { toast } from "sonner";
 
 const AddTransactionDialog = () => {
   const addTransaction = useFinanceStore((state) => state.addTransaction);
@@ -42,7 +42,6 @@ const AddTransactionDialog = () => {
   const [date, setDate] = useState(null);
 
   const handleSubmit = () => {
-    // ✅ Validation using Sonner
     if (!date || !form.description || !form.category || !form.amount) {
       toast.error("Please fill all fields before adding a transaction");
       return;
@@ -55,9 +54,8 @@ const AddTransactionDialog = () => {
       amount: Number(form.amount),
     });
 
-    toast.success("Transaction added successfully 🎉"); // ✅ success toast
+    toast.success("Transaction added successfully");
 
-    // Reset form
     setForm({
       description: "",
       category: "",
@@ -72,19 +70,21 @@ const AddTransactionDialog = () => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-<DialogTrigger asChild>
-  <Button className="flex items-center gap-2 bg-white text-black hover:bg-black-700 shadow-md">
-    <PlusIcon className="w-5 h-5" />
-    Add Transaction
-  </Button>
-</DialogTrigger>
+      <DialogTrigger asChild>
+        <Button className="flex items-center gap-2 bg-white text-black shadow-md hover:bg-gray-100">
+          {/* Plus Icon */}
+          <PlusIcon className="w-5 h-5" />
+
+          {/* Text visible only on tablet & desktop */}
+          <span className="">Add Transaction</span>
+        </Button>
+      </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Add New Transaction</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
-
           {/* Date Picker */}
           <div className="space-y-2">
             <label className="text-sm font-medium">Date</label>
@@ -94,7 +94,7 @@ const AddTransactionDialog = () => {
                   variant="outline"
                   className={cn(
                     "w-full justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
+                    !date && "text-muted-foreground",
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
@@ -130,9 +130,7 @@ const AddTransactionDialog = () => {
             <Input
               placeholder="Food / Salary / Travel"
               value={form.category}
-              onChange={(e) =>
-                setForm({ ...form, category: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, category: e.target.value })}
             />
           </div>
 
@@ -143,9 +141,7 @@ const AddTransactionDialog = () => {
               type="number"
               placeholder="Enter amount"
               value={form.amount}
-              onChange={(e) =>
-                setForm({ ...form, amount: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, amount: e.target.value })}
             />
           </div>
 
@@ -155,9 +151,7 @@ const AddTransactionDialog = () => {
             <select
               className="w-full border rounded-md p-2"
               value={form.type}
-              onChange={(e) =>
-                setForm({ ...form, type: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, type: e.target.value })}
             >
               <option value="income">Income</option>
               <option value="expense">Expense</option>

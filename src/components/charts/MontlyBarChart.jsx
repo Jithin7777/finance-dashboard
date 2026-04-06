@@ -1,16 +1,22 @@
 import React from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
 
 const MonthlyBarChart = ({ monthlySummary }) => {
-  // Convert object to array and sort months chronologically
   const data = Object.entries(monthlySummary)
     .map(([month, values]) => ({
       month,
       income: values.income,
       expense: values.expense,
     }))
-    .sort((a, b) => new Date(a.month + "-01") - new Date(b.month + "-01")); 
-    // adding "-01" to make it a valid date
+    .sort((a, b) => new Date(a.month + "-01") - new Date(b.month + "-01"));
 
   return (
     <ResponsiveContainer width="100%" height={200}>

@@ -16,13 +16,22 @@ const DeleteConfirmationDialog = ({ open, setOpen, onConfirm }) => {
           <DialogTitle>Delete Transaction</DialogTitle>
         </DialogHeader>
 
-        <p>Are you sure you want to delete this transaction? This action cannot be undone.</p>
+        <p>
+          Are you sure you want to delete this transaction? This action cannot
+          be undone.
+        </p>
 
         <DialogFooter className="mt-4 flex justify-end gap-2">
           <Button variant="outline" onClick={() => setOpen(false)}>
             Cancel
           </Button>
-          <Button variant="destructive" onClick={() => { onConfirm(); setOpen(false); }}>
+          <Button
+            variant="destructive"
+            onClick={() => {
+              onConfirm();
+              setOpen(false);
+            }}
+          >
             Delete
           </Button>
         </DialogFooter>

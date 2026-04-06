@@ -29,7 +29,7 @@ export default function Layout({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
       {/* Desktop Sidebar */}
       <div className="hidden xl:flex fixed left-0 top-0 h-full z-10">
         <Sidebar />
