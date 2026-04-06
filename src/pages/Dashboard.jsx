@@ -5,6 +5,7 @@ import PieChartComponent from "../components/charts/PieChartComponent";
 import { useFinanceStore } from "../store/financeStore";
 import SummaryCards from "@/components/dashboard/SummaryCards";
 import { BarChart2, Landmark, PieChart } from "lucide-react";
+import RecentTransactions from "@/components/dashboard/RecentTransactions";
 const Dashboard = () => {
   const { transactions } = useFinanceStore();
 
@@ -84,7 +85,6 @@ const Dashboard = () => {
 
       {/* Summary Cards */}
       <SummaryCards />
-
       {/* Charts Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
         {/* Line Chart */}
@@ -143,6 +143,7 @@ const Dashboard = () => {
               <div className="w-full h-64 sm:h-72 md:h-80 lg:h-96">
                 <PieChartComponent data={categoryData} />
               </div>
+              
             </>
           ) : (
             <div className="text-center py-10 text-gray-500 dark:text-gray-400">
@@ -150,6 +151,8 @@ const Dashboard = () => {
             </div>
           )}
         </div>
+        <RecentTransactions limit={5} />
+
       </div>
     </div>
   );

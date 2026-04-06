@@ -67,7 +67,7 @@ const TransactionToolbar = () => {
             className="flex items-center gap-2 w-full sm:w-auto"
           >
             <Download size={14} />
-            <span className="hidden sm:inline">Export CSV</span>
+            <span className="">Export CSV</span>
           </Button>
         </div>
       </div>

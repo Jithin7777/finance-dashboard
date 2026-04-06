@@ -47,7 +47,7 @@ export default function Layout({ children }) {
       {/* Main content */}
       <div className={`flex-1 flex flex-col ${mobileOpen ? "overflow-hidden" : ""} xl:ml-64`}>
         <Navbar toggleMobile={() => setMobileOpen((prev) => !prev)} />
-        <main className="p-6 overflow-y-auto h-[calc(100vh-73px)]">
+        <main className="p-3 md:p-6 overflow-y-auto h-[calc(100vh-73px)]">
           {children}
         </main>
       </div>
