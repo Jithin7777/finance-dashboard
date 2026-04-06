@@ -1,16 +1,117 @@
-# React + Vite
+# Project Overview
+A interactive Finance Dashboard built with React, Tailwind CSS, and Zustand for state management. This dashboard allows users to track income, expenses, and balance trends with charts and transaction management.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Dashboard Overview
 
-## React Compiler
+- Summary cards: Total Balance, Income, Expenses
+- Balance Trend (Line Chart)
+- Spending Breakdown (Pie Chart)
+- Recent Transactions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Transactions 
 
-## Expanding the ESLint configuration
+- Transaction table with Date, Category, Type, Amount
+- Search, filter, and group options
+- Export CSV
+- Reset filters
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Role-Based UI
+
+- Viewer: Read-only
+- Admin: Add/Edit/Delete (simulated)
+- Role switch dropdown
+
+### Insights Section
+
+- Highest spending category
+- Monthly comparison
+- Financial observations
+
+### UI/UX
+
+- Dark mode support
+- Responsive design
+- Hover effects and smooth animations
+- Graceful handling of empty states
+
+
+## Tech Stack
+
+- **Frontend:** React + Vite
+- **Styling:** Tailwind CSS
+- **State Management:** Zustand
+- **Charts:** Recharts
+- **UI Components:** Shadcn UI
+- **Notifications:** Sonner
+- **Icons:** Lucide React, Heroicons
+- **Data:** Static JSON (mock transactions)
+
+
+```txt
+finance-dashboard/
+├─ public/                     # Static assets like favicon, images
+├─ src/
+│  ├─ assets/                  # Images, icons, and other static assets
+│  ├─ components/              # Shared UI components
+│  │  ├─ charts/               # LineChart, PieChart, BarCharts
+│  │  ├─ dashboard/            # SummaryCards, RecentTransactions
+│  │  ├─ insights/             # InsightCards, FinancialObservation
+│  │  ├─ layout/               # Navbar, Sidebar, Layout
+│  │  ├─ transactions/         # TransactionTable, Toolbar, Modals
+│  │  └─ ui/                   # Shadcn UI components (Button, Select, etc.)
+│  ├─ data/                     # Mock JSON data
+│  │  └─ transactions.json
+│  ├─ lib/                      # Utilities and helper libraries
+│  │  └─ utils.js
+│  ├─ pages/                    # Main pages
+│  │  ├─ Dashboard.jsx
+│  │  ├─ Insights.jsx
+│  │  ├─ NotFound.jsx
+│  │  └─ Transactions.jsx
+│  ├─ store/                    # Zustand state management
+│  │  └─ financeStore.js
+│  ├─ utils/                    # Utility functions
+│  │  ├─ exportCSV.js
+│  │  ├─ filters.js
+│  │  └─ grouping.js
+│  ├─ App.jsx
+│  ├─ main.jsx
+│  ├─ index.css
+│  └─ App.css
+├─ .gitignore
+├─ README.md
+├─ components.json
+├─ eslint.config.js
+├─ index.html
+├─ jsconfig.json
+├─ package.json
+├─ package-lock.json
+├─ tailwind.config.js
+└─ vite.config.js
+```
+
+
+## Steps to Run the Project Locally
+
+1. Clone the repository
+
+```bash
+git clone git@github.com:Jithin7777/finance-dashboard.git
+cd finance-dashboard
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+
+3. Start the development server
+
+```bash
+npm run dev
+```
