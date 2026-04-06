@@ -56,7 +56,7 @@ const TransactionToolbar = () => {
             className="flex items-center gap-2 w-full sm:w-auto"
           >
             <RotateCcw size={14} />
-            <span className="hidden sm:inline">Reset</span>
+            <span className="">Reset</span>
           </Button>
 
           {/* Export */}
