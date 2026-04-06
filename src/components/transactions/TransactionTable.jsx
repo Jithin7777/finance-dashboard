@@ -23,7 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Pencil, Trash2 } from "lucide-react";
 import DeleteConfirmationDialog from "./DeleteConfirmationDialog";
-
+import { ArrowUp, ArrowDown } from "lucide-react";
 const TransactionTable = ({ onEdit }) => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
@@ -153,12 +153,17 @@ const TransactionTable = ({ onEdit }) => {
                         {t.description}
                       </TableCell>
                       <TableCell
-                        className={`font-bold ${
+                        className={`font-bold flex items-center gap-1 ${
                           t.type === "income"
                             ? "text-green-600 dark:text-green-300"
                             : "text-red-600 dark:text-red-300"
                         }`}
                       >
+                        {t.type === "income" ? (
+                          <ArrowUp className="w-4 h-4" />
+                        ) : (
+                          <ArrowDown className="w-4 h-4" />
+                        )}
                         ₹{t.amount}
                       </TableCell>
                       {role === "admin" && (
@@ -251,12 +256,17 @@ const TransactionTable = ({ onEdit }) => {
                       </span>
 
                       <span
-                        className={`font-semibold text-lg tracking-wide sm:text-xl ${
+                        className={`font-bold ${
                           t.type === "income"
-                            ? "text-green-600 dark:text-green-300"
-                            : "text-red-600 dark:text-red-300"
+                            ? "text-green-600 dark:text-green-300 flex items-center gap-1"
+                            : "text-red-600 dark:text-red-300 flex items-center gap-1"
                         }`}
                       >
+                        {t.type === "income" ? (
+                          <ArrowUp className="w-4 h-4" />
+                        ) : (
+                          <ArrowDown className="w-4 h-4" />
+                        )}
                         ₹{t.amount}
                       </span>
                     </div>
