@@ -1,26 +1,3 @@
-// import Navbar from "./Navbar";
-// import Sidebar from "./Sidebar";
-
-// export default function Layout({ children }) {
-//   return (
-//     <div className="flex min-h-screen bg-gray-100">
-//       {/* Fixed Sidebar */}
-//       <div className="fixed left-0 top-0 h-full z-10">
-//         <Sidebar />
-//       </div>
-      
-//       {/* Main content area with left margin to accommodate fixed sidebar */}
-//       <div className="flex-1 flex flex-col ml-64"> {/* Adjust ml-64 to match your sidebar width */}
-//         <Navbar />
-//         <main className="p-6 overflow-y-auto h-[calc(100vh-73px)]"> {/* Adjust height based on navbar height */}
-//           {children}
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 import { useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
@@ -45,7 +22,9 @@ export default function Layout({ children }) {
       )}
 
       {/* Main content */}
-      <div className={`flex-1 flex flex-col ${mobileOpen ? "overflow-hidden" : ""} xl:ml-64`}>
+      <div
+        className={`flex-1 flex flex-col ${mobileOpen ? "overflow-hidden" : ""} xl:ml-64`}
+      >
         <Navbar toggleMobile={() => setMobileOpen((prev) => !prev)} />
         <main className="p-3 md:p-6 overflow-y-auto h-[calc(100vh-73px)]">
           {children}

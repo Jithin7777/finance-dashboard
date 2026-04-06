@@ -1,5 +1,3 @@
-// src/components/layout/Sidebar.jsx
-
 import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
@@ -53,7 +51,6 @@ const Sidebar = ({ onClose }) => {
           </h1>
         </div>
 
-        {/* Close Button */}
         {onClose && (
           <button
             onClick={onClose}
@@ -116,7 +113,6 @@ const Sidebar = ({ onClose }) => {
           <DarkModeToggle />
         </div>
 
-        {/* Copyright */}
         <div className="text-center text-gray-500 dark:text-gray-400 text-sm">
           © {new Date().getFullYear()} FinTrack
         </div>

@@ -3,7 +3,7 @@ import Dashboard from "./pages/Dashboard";
 import Transactions from "./pages/Transactions";
 import Insights from "./pages/Insights";
 import NotFound from "./pages/NotFound";
-import Layout from "./components/layout/Layout"; // <-- Layout includes Navbar + Sidebar
+import Layout from "./components/layout/Layout"; 
 
 function App() {
   return (
