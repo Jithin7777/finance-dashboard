@@ -72,9 +72,9 @@ const TransactionTable = ({ onEdit }) => {
       </div>
 
       {/* Desktop Table */}
-      <div className="hidden md:block overflow-x-auto">
+      <div className="hidden md:block overflow-x-auto dark:hover:bg-gray-850">
         <Table>
-          <TableHeader className="bg-gray-50 dark:bg-gray-900">
+          <TableHeader className="bg-gray-50 dark:bg-gray-800 ">
             <TableRow>
               <TableHead className="font-semibold text-gray-600 dark:text-gray-200">
                 Date
@@ -130,7 +130,7 @@ const TransactionTable = ({ onEdit }) => {
                   {groupedTransactions[group].map((t) => (
                     <TableRow
                       key={t.id}
-                      className="hover:bg-gray-50 dark:bg-gray-900 transition"
+                      className="hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800  transition"
                     >
                       <TableCell className="text-gray-900 dark:text-gray-100">
                         {new Date(t.date).toLocaleDateString("en-IN")}
