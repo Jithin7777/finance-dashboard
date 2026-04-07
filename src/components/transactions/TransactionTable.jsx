@@ -55,7 +55,7 @@ const TransactionTable = ({ onEdit }) => {
   else groupedTransactions = { All: filteredTransactions };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm dark:shadow-gray-700 border dark:border-gray-700">
+    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm dark:shadow-gray-700 border dark:border-gray-700">
       {/* Header */}
       <div className="flex justify-between items-center p-4 border-b dark:border-gray-700">
         <div>
@@ -74,7 +74,7 @@ const TransactionTable = ({ onEdit }) => {
       {/* Desktop Table */}
       <div className="hidden md:block overflow-x-auto">
         <Table>
-          <TableHeader className="bg-gray-50 dark:bg-gray-700">
+          <TableHeader className="bg-gray-50 dark:bg-gray-900">
             <TableRow>
               <TableHead className="font-semibold text-gray-600 dark:text-gray-200">
                 Date
@@ -130,7 +130,7 @@ const TransactionTable = ({ onEdit }) => {
                   {groupedTransactions[group].map((t) => (
                     <TableRow
                       key={t.id}
-                      className="hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+                      className="hover:bg-gray-50 dark:bg-gray-900 transition"
                     >
                       <TableCell className="text-gray-900 dark:text-gray-100">
                         {new Date(t.date).toLocaleDateString("en-IN")}
@@ -217,7 +217,7 @@ const TransactionTable = ({ onEdit }) => {
               {groupedTransactions[group].map((t) => (
                 <Card
                   key={t.id}
-                  className="shadow-sm border dark:border-gray-700 hover:shadow-md transition bg-white dark:bg-gray-800"
+                  className="shadow-sm border dark:border-gray-700 hover:shadow-md transition bg-white dark:bg-gray-900"
                 >
                   <CardContent className="p-4 space-y-3 text-gray-900 dark:text-gray-100">
                     {/* Category & Type */}

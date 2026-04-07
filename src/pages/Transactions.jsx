@@ -20,11 +20,11 @@ const Transactions = () => {
         <AddTransactionDialog />
       </div>
 
-      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow dark:shadow-gray-700 space-y-4">
+      <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow dark:shadow-gray-700 space-y-4">
         <TransactionToolbar />
       </div>
 
-      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow dark:shadow-gray-700">
+      <div className="bg-white dark:bg-gray-900 p-4 rounded-lg shadow dark:shadow-gray-700">
         <TransactionTable onEdit={handleEdit} />
       </div>
 

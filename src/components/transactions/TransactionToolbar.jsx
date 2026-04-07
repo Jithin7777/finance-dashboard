@@ -39,7 +39,7 @@ const TransactionToolbar = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl shadow-sm p-4 sm:p-5">
+    <div className="bg-white dark:bg-gray-900 border dark:border-gray-700 rounded-xl shadow-sm p-4 sm:p-5">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
         <h2 className="font-semibold text-gray-700 dark:text-gray-100 text-base sm:text-lg">
@@ -97,7 +97,7 @@ const TransactionToolbar = () => {
               focus:ring-2
               focus:ring-blue-500
               outline-none
-              bg-white dark:bg-gray-700
+              bg-white dark:bg-gray-900
               text-gray-900 dark:text-gray-100
               border-gray-300 dark:border-gray-600
             "
@@ -109,12 +109,12 @@ const TransactionToolbar = () => {
           value={filterType || "all"}
           onValueChange={(value) => setFilterType(value === "all" ? "" : value)}
         >
-          <SelectTrigger className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+          <SelectTrigger className="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
             <Filter size={16} className="mr-2" />
             <SelectValue placeholder="Type" />
           </SelectTrigger>
 
-          <SelectContent className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+          <SelectContent className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
             <SelectItem value="all">All Types</SelectItem>
             <SelectItem value="income">Income</SelectItem>
             <SelectItem value="expense">Expense</SelectItem>
@@ -128,12 +128,12 @@ const TransactionToolbar = () => {
             setFilterCategory(value === "all" ? "" : value)
           }
         >
-          <SelectTrigger className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+          <SelectTrigger className="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
             <Tag size={16} className="mr-2" />
             <SelectValue placeholder="Category" />
           </SelectTrigger>
 
-          <SelectContent className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+          <SelectContent className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
             <SelectItem value="all">All Categories</SelectItem>
             {categories.map((cat, index) => (
               <SelectItem key={index} value={cat}>
@@ -148,12 +148,12 @@ const TransactionToolbar = () => {
           value={groupBy || "none"}
           onValueChange={(value) => setGroupBy(value === "none" ? "" : value)}
         >
-          <SelectTrigger className="w-full bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
+          <SelectTrigger className="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600">
             <Layers size={16} className="mr-2" />
             <SelectValue placeholder="Group By" />
           </SelectTrigger>
 
-          <SelectContent className="bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+          <SelectContent className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
             <SelectItem value="none">None</SelectItem>
             <SelectItem value="category">Category</SelectItem>
             <SelectItem value="type">Type</SelectItem>

@@ -40,9 +40,9 @@ const InsightsCards = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
       {/* Highest Spending */}
-      <Card className="bg-white dark:bg-gray-800 shadow-sm dark:shadow-gray-700">
+      <Card className="bg-white dark:bg-gray-900 shadow-sm dark:shadow-gray-700">
         <CardHeader>
-          <CardTitle className="text-gray-800 dark:text-gray-100">
+          <CardTitle className="text-gray-900 dark:text-gray-100">
             Highest Spending
           </CardTitle>
         </CardHeader>
@@ -59,7 +59,7 @@ const InsightsCards = () => {
       </Card>
 
       {/* Monthly Comparison */}
-      <Card className="bg-white dark:bg-gray-800 shadow-sm dark:shadow-gray-700">
+      <Card className="bg-white dark:bg-gray-900 shadow-sm dark:shadow-gray-700">
         <CardHeader>
           <CardTitle className="text-gray-800 dark:text-gray-100">
             Monthly Comparison
@@ -71,7 +71,7 @@ const InsightsCards = () => {
       </Card>
 
       {/* Smart Insights */}
-      <Card className="bg-white dark:bg-gray-800 shadow-sm dark:shadow-gray-700">
+      <Card className="bg-white dark:bg-gray-900 shadow-sm dark:shadow-gray-700">
         <CardHeader>
           <CardTitle className="text-gray-800 dark:text-gray-100">
             Smart Insights
